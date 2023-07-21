@@ -1,0 +1,21 @@
+database restore command: mysql -h 127.0.0.1 -u root -p office<"/home/mahfuz/Downloads/dump-office_f_v_4-202110282252.sql"
+mysql -h 127.0.0.1 -u root -p mbmcomm<"/home/mahfuz/Downloads/mbmcomm1_table.sql"
+
+Switch php Version
+==================
+https://hostadvice.com/how-to/web-hosting/vps/how-to-switch-between-php-versions-on-an-ubuntu-22-04-vps-or-dedicated-server/
+sudo update-alternatives --set php /usr/bin/php7.2
+
+Check Installed PHP versions
+++++++++++++++++++++++++++++
+apt list --installed | grep php
+
+
+check and switch php version
+++++++++++++++++++++++++++++
+sudo update-alternatives --config php
+
+
+laravel sail project create
++++++++++++++++++++++++++++
+curl -s https://laravel.build/example-app | bash

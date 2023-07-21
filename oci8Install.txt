@@ -1,0 +1,163 @@
+Make Oracle Directory
+=====================
+
+mkdir /opt/oracle
+cd /opt/oracle
+
+Download File
+============
+File link: 
+
+https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+
+wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+
+
+https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+
+wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+
+
+UNZIP
+=====
+unzip instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+
+unzip instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+
+
+Create Symbolic Link
+===================
+
+ln -s /opt/oracle/instantclient_21_6/libclntsh.so.12.1 /opt/oracle/instantclient_21_6/libclntsh.so
+
+(FAILED file already exists)
+
+remove /opt/oracle
+==================
+
+rm -rf /opt/oracle
+
+++++++++++++
+new ref link
+++++++++++
+
+https://gist.github.com/eSkiSo/781269c79b4dd740e90fcc059c1985ae
+
+Make directory
+============
+
+    sudo mkdir /usr/lib/oracle
+    sudo mkdir /usr/lib/oracle/21.1
+    sudo mkdir /usr/lib/oracle/21.1/client64
+    
+
+change Directory
+============
+cd /usr/lib/oracle/
+
+
+Download file 12.1
+==================
+ 
+wget https://download.oracle.com/otn/linux/instantclient/121020/instantclient-basic-linux.x64-12.1.0.2.0.zip
+
+wget https://download.oracle.com/otn/linux/instantclient/121020/instantclient-sdk-linux.x64-12.1.0.2.0.zip
+
+
+wget https://download.oracle.com/otn/linux/instantclient/121020/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
+    
+ Download file 21.6
+ ==================
+
+wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+
+change dir: cd /usr/lib/oracle/21.1/client64
+
+cp /usr/lib/oracle/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip .
+
+Get sdk file:
+
+wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+
+Unzip
+========
+unzip instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+
+unzip instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+
+
+move: mv instantclient_21_6/ lib
+
+chage dir: cd /usr/lib/oracle/21.1/client64/lib
+
+create symbolic link: ln -s libclntsh.so.12.1 libclntsh.so
+
+edit ldconfig: nano ldconfig
+
+publish: ldconfig
+
+print and copy path: cat ldconfig
+
+echo: sudo echo /usr/lib/oracle/21.1/client64/lib > /etc/ld.so.conf.d/oracle.conf
+
+
+
+total command for oci8 21.6
+============================
+
+
+Make Dir
+++++++++++
+sudo mkdir /usr/lib/oracle
+sudo mkdir /usr/lib/oracle/21.1
+sudo mkdir /usr/lib/oracle/21.1/client64
+cd /usr/lib/oracle
+wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+ll
+ls
+cd 21.1
+cd client64
+cp /usr/lib/oracle/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+cp /usr/lib/oracle/instantclient-basic-linux.x64-21.6.0.0.0dbru.zip .
+wget https://download.oracle.com/otn_software/linux/instantclient/216000/instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+ ls
+unzip instantclient-basic-linux.x64-21.6.0.0.0dbru.zip
+unzip instantclient-sdk-linux.x64-21.6.0.0.0dbru.zip
+mv instantclient_21_6/ lib
+cd lib
+ln -s libclntsh.so.12.1 libclntsh.so
+nano ldconfig
+ldconfig
+paste inside ldconfig and save: sudo echo /usr/lib/oracle/21.1/client64/lib > /etc/ld.so.conf.d/oracle.conf
+cat ldconfig
+sudo echo /usr/lib/oracle/21.1/client64/lib > /etc/ld.so.conf.d/oracle.conf
+nano ldconfig
+ldconfig
+cat ldconfig
+sudo echo /usr/lib/oracle/21.1/client64/lib > /etc/ld.so.conf.d/oracle.conf
+nano ldconfig
+cat ldconfig
+nano ldconfig
+cat ldconfig
+
+isntall php packages:
+====================
+apt-get install php7.4-dev php7.4-pear build-essential libaio1
+apt-get install php7.4-dev
+apt-get install buildessential
+apt-get install libaio1
+apt autoremove
+pecl channel-update pecl-php.net
+sudo pecl channel-update pecl.php.net
+sudo pecl install oci8-2.2.0
+sudo echo "extension=oci8.so" >> /etc/php/7.4/cli/php.ini
+systemctl restart apache2
+cd /etc/php/7.4/mods-available
+nano oci.ini
+cd /etc/php/7.4/apache2/conf.d
+sudo ln -s /etc/php/7.4/mods-available/oci.ini 20-oci.ini
+sudo systemctl restart apache2
+php -i | grep oci
+
+
+
