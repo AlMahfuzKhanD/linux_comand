@@ -19,3 +19,10 @@ sudo update-alternatives --config php
 laravel sail project create
 +++++++++++++++++++++++++++
 curl -s https://laravel.build/example-app | bash
+
+docker mysql connection failed solution
+++++++++++++++++++++++++++++++++++++++
+
+docker-compose down --volumes
+sail up --build
+
